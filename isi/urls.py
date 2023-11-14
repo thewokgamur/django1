@@ -5,4 +5,5 @@ app_news = 'isi'
 
 urlpatterns = [
     path('mu/' , views.mu, name='mu'),
+    path('all/' , views.all, name='all'),
 ]
