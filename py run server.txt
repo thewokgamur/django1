@@ -1,0 +1,4 @@
+d:
+cd django/hppp
+myworld\Scripts\activate.bat
+py manage.py runserver

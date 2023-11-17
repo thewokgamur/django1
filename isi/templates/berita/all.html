@@ -12,23 +12,24 @@
     <link rel="stylesheet" href="{% static 'index.css' %}">
     {% endblock htmlhead %}
 </head>
-<body>
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            {% for berita in berita %}
-          <div class="col-md-4">
-            <img src="{{berita.gambar.url}}" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">{{berita.judul}}</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-              <button class="btn btn-primary" onclick="location.href='/mu'">Button</button>
+<body style="background-color: rgb(27, 17, 34);">
+  <div class="row">
+    {% for berita in berita %}
+      <div style="max-width: 540px; margin-left: 100px; margin-top: 50px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{berita.gambar.url}}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 style="color: white;" class="card-title">{{berita.judul}}</h5>
+                <h2 style="color: white;" class="card-title">{{berita.kategori}}</h2>
+                <a class="btn btn-primary" href="{% url 'mu' berita.id %}">Button</a>
+              </div>
             </div>
           </div>
-          {% endfor %}
         </div>
+        {% endfor %}
       </div>
 </body>
 </html>

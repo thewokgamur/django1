@@ -46,10 +46,18 @@ class CustomUser (AbstractBaseUser, PermissionsMixin):
 class kategori(models.Model):
     namakategori = models.CharField(max_length=225)
 
+    def __str__(self):
+        return self.namakategori
+
+
 # Create your models here.
 class berita(models.Model):
+    STATUS = ('publish', 'publish'),('draft','draft')
     judul = models.CharField(max_length = 225)
+    deskripsi = models.CharField(max_length = 225, null=True)
     isi = models.CharField(max_length = 9999)
     kategori = models.ForeignKey(kategori ,on_delete=models.CASCADE)
+    kategoriid = models.IntegerField(null=True, blank=True)
     gambar = models.ImageField(upload_to='media', height_field=None, max_length=100)
     penulis = models.CharField(max_length=225)
+    status = models.CharField(choices=STATUS, max_length=255,null=True, blank=True)

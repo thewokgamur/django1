@@ -9,7 +9,7 @@ class categoriesAdmin(admin.ModelAdmin):
 admin.site.register(kategori,categoriesAdmin)
 
 class beritaAdmin(admin.ModelAdmin):
-    list_display = ['judul', 'isi', 'kategori','gambar','penulis']
+    list_display = ['judul', 'isi', 'kategori','kategoriid','gambar','penulis','deskripsi','status']
     search_fields = ['judul','kategori_name']
     autocomplete_fields = ['kategori']
 

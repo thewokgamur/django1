@@ -15,9 +15,10 @@
 <body style="background-color: rgb(23, 3, 29);">
   {% block content %}
   <nav class="navbar navbar-expand-lg"  style="background-color: black;">
-    {% for berita in berita %}
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" style="color: white;">MU Banjir Thropy</a>
+        {% if berita %}
+        <a class="navbar-brand" href="#" style="color: white;">{{berita.judul}}</a>
+        {% endif %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,31 +43,22 @@
           </form>
         </div>
       </div>
-      {% endfor %}
+
     </nav>
-
-    <img src="https://e0.365dm.com/23/11/768x432/skysports-marcus-rashford-manchester-united_6353343.jpg?20231108210456" style="scale: 80%; margin-left: -50px; margin-top: 100px;" class="img-fluid" alt="...">
-    <div class="card" style="background-color: rgb(23, 3, 29); width: 35rem; bottom: 300px; left: 700px;">
-        <h1 style=" color: white;">Manchester United Memenangkan Hujan Thropy</h1>
-        <p style=" top:20px; color: white;" class="card-text">Di Indonesia, tsunami trofi menjadi istilah yang identik dengan Manchester United pada musim 2022-2023.
-
-          Awalnya pada 22 Juli 2022, ada akun Twitter yang mengatasnamakan InfoBMKG yang menulis tentang tsunami trofi.
-          
-          "Peringatan untuk segala jenis kehidupan di bumi. Bahwasanya terjadi getaran hebat di Daratan Eropa yang sebentar lagi akan menyebabkan tsunami trofi buat King EMYU," tulis akun tersebut.</p>
+    {% if berita %}
+    <div class="col-md-4">
+    <img src="{{berita.gambar.url}}" style="margin-left: 100px; margin-top: 100px;" class="img-fluid rounded-start" alt="...">
     </div>
+       <div class="card" style="background-color: rgb(23, 3, 29); width: 35rem; bottom: 100px; left: 700px;">
+        <h1 style=" color: white;">{{berita.judul}}</h1>
+        <p style=" top:20px; color: white;" class="card-text">{{berita.deskripsi}}</p>
+        <div class="card" style="background-color: rgb(23, 3, 29); width: 50rem; bottom: -100px; left: -500px;">
+          <p style=" color: white;" class="card-text">{{berita.isi}}</p>
+        </div>
+       </div>
 
-    <div class="card" style="background-color: rgb(23, 3, 29); width: 80rem; bottom: 300px; left: 0px;">
-        <p style=" color: white;" class="card-text">Cuitan itu muncul setelah Manchester United memenangi 3 laga pertama pramusim 2022-2023, termasuk membantai Liverpool 4-0.
 
-          Saat itu keyakinan terhadap peluang Man United bangkit dari era gelap begitu tinggi.
-          
-          Erik ten Hag dianggap akan bisa membawa Setan Merah kembali menjadi klub menakutkan di Inggris dan Eropa.
-          
-          Olok-olok sempat dialami Manchester United setelah start yang buruk di awal musim.
-          
-          Namun, koar-koar soal tsunami trofi kembali muncul setelah mereka bangkit dari periode sulit.</p>
-    </div>
-    {% endblock content %}
+    {% endif %}
                 <!-- Site footer -->
             <footer class="site-footer" style="margin-top: 0px; background-color: black;">
               <div class="container">
@@ -120,5 +112,6 @@
                 </div>
               </div>
         </footer>
+        {% endblock content %}
 </body>
 </html>
